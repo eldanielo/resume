@@ -1,0 +1,229 @@
+%% start of file `template.tex'.
+%% Copyright 2006-2010 Xavier Danaux (xdanaux@gmail.com).
+%% Copyright 2010-2011 Mark Liu (markwayneliu@gmail.com).
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License version 1.3c,
+% available at http://www.latex-project.org/lppl/.
+
+\documentclass[11pt,a4paper,sans]{moderncv}
+
+
+\usepackage[ngerman]{babel}
+\usepackage{bibgerm,cite}       % Deutsche Bezeichnungen, Automatisches Zusammenfassen von Literaturstellen
+\usepackage[ngerman]{varioref}  % Querverweise
+% to use the german charset include cp850 for MS-DOS, ansinew for Windows and latin1 for Linux.
+% \usepackage[latin1]{inputenc}
+
+\usepackage{verbatim}
+
+\usepackage[absolute]{textpos}
+\usepackage[utf8]{inputenc}
+% moderncv themes
+\moderncvtheme[blue]{classic}                 % optional argument are 'blue' (default), 'orange', 'red', 'green', 'grey' and 'roman' (for roman fo\dfrac{•}{•}nts, instead of sans serif fonts)
+%\moderncvtheme[green]{classic}                % idem
+
+% character encoding
+\usepackage[utf8]{inputenc}                   % replace by the encoding you are using
+\hyphenpenalty=10000
+
+% adjust the page margins
+\usepackage[scale=0.8]{geometry}
+%\setlength{\hintscolumnwidth}{3cm}						% if you want to change the width of the column with the dates
+%\AtBeginDocument{\setlength{\maketitlenamewidth}{6cm}}  % only for the classic theme, if you want to change the width of your name placeholder (to leave more space for your address details
+%\AtBeginDocument{\recomputelengths}                     % required when changes are made to page layout lengths
+
+% personal data
+\firstname{Daniel}
+\familyname{Pfeller}
+\email{pfeller.daniel@gmail.com}        
+
+\mobile{+41 79 4598545}                    % optional, remove the line if not wanted
+              % optional, remove the line if not wanted
+%\photo[100pt][0.4pt]{pic.jpg}
+\makeatletter
+\@ifpackageloaded{moderncvstylebanking}{%
+\let\oldmakecvtitle\makecvtitle
+\renewcommand*{\makecvtitle}{%
+  {\centering\framebox{\includegraphics[width=\@photowidth]{\@photo}}\par\vspace{10pt}}%
+  \oldmakecvtitle%
+}%
+}{%
+}
+\makeatother
+
+\makeatletter
+\let\oldcventry\cventry
+\renewcommand*{\cventry}{%
+\oldcventry
+}
+\makeatother
+
+\makeatletter
+\@ifpackageloaded{moderncvstylecasual}{%
+%\AtBeginDocument
+%{
+% reverse the name and photo
+\renewcommand*{\makecvtitle}{%
+  \recomputecvlengths%
+  \makecvfooter%
+  % define optional picture
+  \newbox{\makecvtitlepicturebox}%
+  \savebox{\makecvtitlepicturebox}{%
+    \ifthenelse{\isundefined{\@photo}}%
+      {
+        \@initializelength{\makecvtitlepicturewidth}% Damit Länge bekannt bei Name
+        \settowidth{\makecvtitlepicturewidth}{0pt}%
+      }%
+      {%
+       \setlength\fboxrule{\@photoframewidth}%
+       \ifdim\@photoframewidth=0pt%
+         \setlength{\fboxsep}{0pt}\fi%
+       {\color{color1}\framebox{\includegraphics[width=\@photowidth]{\@photo}}}}
+        \@initializelength{\makecvtitlepicturewidth}% Damit Länge bekannt bei Name
+        \settowidth{\makecvtitlepicturewidth}{\usebox{\makecvtitlepicturebox}}%
+      }%
+  % end define optional picture
+
+  % name
+%    \parbox[b]{\textwidth-\makecvtitlepicturewidth}{%
+ {   \raggedright\namefont{\color{color2!50}\@firstname} {\color{color2}\@familyname}}%\lastname -> error
+    %
+%    \parbox[b]{\textwidth-\makecvtitlepicturewidth}{%
+%   \raggedleft\namefont{\color{color2!50}\@firstname} {\color{color2}\@lastname}}%\familyname
+\\[-.35em]%
+  {\color{color2!50}\rule{\textwidth}{.25ex}}\par\medskip%
+\hfill\usebox{\makecvtitlepicturebox}
+  % optional title
+  \ifthenelse{\equal{\@title}{}}{}{\\[1.25em]\null\hfill\titlestyle{\@title}}\\[2.5em]% 
+  % optional quote
+  \ifthenelse{\isundefined{\@quote}}%
+    {}%
+    {{\null\hfill\begin{minipage}{\quotewidth}\centering\quotestyle{\@quote}\end{minipage}\hfill\null\\[2.5em]}}%
+  \par}% 
+}%
+
+%}% AtBeginDocument ende
+\makeatother
+\newlength\mylen
+\addtolength\mylen{\linewidth}
+\addtolength\mylen{-\hintscolumnwidth}
+\addtolength\mylen{-\separatorcolumnwidth}
+\addtolength\mylen{-3mm}
+
+\newcommand\mybitem[1]{%
+   \parbox[t]{3mm}{\textbullet}\parbox[t]{\mylen}{#1}}
+
+% to show numerical labels in the bibliography; only useful if you make citations in your resume
+%\makeatletter
+%\renewcommand*{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}
+%\makeatother
+
+\nopagenumbers{}                             % uncomment to suppress automatic page numbering for CVs longer than one page
+%----------------------------------------------------------------------------------
+%            content
+%----------------------------------------------------------------------------------
+\begin{document}
+\setlength{\parskip}{5em}
+\selectlanguage{ngerman}
+
+\makecvtitle{
+10+ years of expertise leading cloud transformations and delivering impactful machine learning/AI solutions for global enterprises and unicorn startups.  Proven ability to lead cross-functional teams, act as a trusted advisor to C-level executives (impacting \$500M+ in yearly cloud revenue), and drive significant business outcomes such as revenue expansion, cost optimization, and enhanced operational efficiency. Deeply passionate about leveraging cutting-edge technologies to solve complex business problems and ensure successful program execution at scale."
+}
+
+
+\section{Career}
+
+
+\cventry[0.5em]{2017-present}{Customer Engineer - Google Cloud Platform}{Google}{}{}{
+\begin{itemize}
+\item Led cross-functional technical engagements, integrating cloud technologies with client requirements to deliver scalable, high-performance solutions for some of the world’s largest enterprises and high-growth unicorn startups. Managed projects from initial requirements gathering and solution architecture design through seamless implementation, deployment, and ongoing support, ensuring successful program execution.
+\item Built strong relationships and acted as a trusted advisor to key decision-makers at major companies, driving cloud adoption and impacting over \$500M  Cloud revenue in 2024.
+\item Partnered closely with Google Engineering and Product Management to proactively identify market needs and inform product roadmap prioritization, directly contributing to Google Cloud's strategic product direction.
+\end{itemize}
+}
+
+\cventry[0.5em]{2022}{Technical Program Manager  - Google Assistant}{Google}{}{}{
+\begin{itemize}
+\item Led and delivered a critical cross-functional program involving two machine learning engineering teams, delivering the group's first ML model in Chrome production.
+\item Engineered and implemented a complete revamp of coordination processes for a global, 80-engineer program team, enhancing alignment and increasing project velocity by 20\%
+\item Defined key OKRs aligned to overall program objectives, to guide performance, drive technical excellence, and ensure timely program delivery.
+\item Rigorously monitored key program performance metrics, enabling data-driven program adjustments, including a timely and impactful course correction to mitigate risks and optimize program outcomes
+\item Streamlined program scope by strategically refocusing efforts onto key user journeys and sunsetting lower-priority initiatives, resulting in a 10\% increase in user satisfaction scores and improved program focus
+\end{itemize}
+}
+
+
+
+
+
+\cventry[0.5em]{2014-2017}{Technology Solutions Professional - Azure}{Microsoft}{}{}{
+\begin{itemize} 
+\item Played a pivotal role in the early days of cloud computing, pushing the frontiers of Azure adoption when cloud technology was still in its infancy and largely uncharted territory.
+\item Pioneered technical strategies that redefined how enterprises approached IT infrastructure, leading them away from traditional setups and into scalable, cloud-based architectures that future-proofed their businesses.
+\end{itemize}
+}
+
+\cventry[0.5em]{H1 2014}{Technical Evangelist - Azure}{Microsoft}{}{}{
+\begin{itemize}
+\item Held keynotes and technical deep dive sessions at conferences, published reference architectures and authored whitepapers and blog posts. 
+\end{itemize}
+}
+
+
+
+
+\cventry[0.5em]{2013-2014}{Co-Founder \& Software Engineer - Android}{\href{https://play.google.com/store/apps/details?id=org.mots.haxsync}{HaxSync}}{}{}{%
+\begin{itemize}
+\item Created an Android application with over 100,000 downloads, ranking in the \textbf{top 100} paid apps and maintained a 4,4 user rating by delivering unique value to the user.
+\end{itemize}}
+\cventry[0.5em]{2013}{Teaching Fellow  - Fundamentals of Computer Science}{Vienna University of Technology}{}{}{
+\begin{itemize}
+\item Held lectures about programming, algorithms, design patterns, etc.
+\end{itemize}
+}
+
+\cventry{2012}{Software Engineer - Internship}{ETM Control GMBH}{}{}{
+\begin{itemize}
+\item Developed a HTML/JavaScript based mobile client for a complex supervisory control system.
+\end{itemize}
+}
+
+
+\section{Education}
+\cventry[0.5em]{2011-2014}{BSc, Software and Information Engineering}{Vienna University of Technology}{}{}{}
+%\cventry[0.6em]{2001-2009}{Secondary School}{Gymnasium Kurzwiese}{}{}{focus on information technology.}{}{}
+
+
+
+
+
+
+\section {Expertise and skills}
+\cvitem{Project Management}{Agile/Scrum, project planning and execution, risk management, dependency management, stakeholder management }
+\cvitem{Leadership}{ Cross-functional team leadership, leading without authority, mentoring}
+\cvitem{Programming}{Python, C\#, Java}
+\cvitem{Platforms}{GCP, Azure, Android}
+\cvitem{Technologies}{GenAI, VertexAI, k8s, terraform}
+\cvitem{Certifications}{3 x Google Cloud Certified Professional}
+\cvitem{}{4 x Microsoft Certified Solution Professional}
+
+%\cvitem{Further skills}{Profound technical insights and quick to learn new things.}
+%\cvitem{}{Open for new and demanding challenges.}
+%\cvitem{}{Good at cooperating with people and talking to customers.}
+%\cvitem{}{Experienced in educating people with various backgrounds about new concepts.}
+
+
+\section {Languages}
+\cvlanguage{German}{native}{}
+\cvlanguage{English}{fluent}{}
+
+
+%\section {Interests}
+%\cvitem{}{internet of things, cloud topics}{}
+%\cvitem{}{new technologies and products in soft and hardware}{}
+%\cvitem{}{programming, app development}
+%\cvitem{}{fitness, sports}
+
+
+\end{document}
