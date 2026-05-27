@@ -1,0 +1,229 @@
+%% start of file `template.tex'.
+%% Copyright 2006-2010 Xavier Danaux (xdanaux@gmail.com).
+%% Copyright 2010-2011 Mark Liu (markwayneliu@gmail.com).
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License version 1.3c,
+% available at http://www.latex-project.org/lppl/.
+
+\documentclass[11pt,a4paper,sans]{moderncv}
+
+
+\usepackage[ngerman]{babel}
+\usepackage{bibgerm,cite}       % Deutsche Bezeichnungen, Automatisches Zusammenfassen von Literaturstellen
+\usepackage[ngerman]{varioref}  % Querverweise
+% to use the german charset include cp850 for MS-DOS, ansinew for Windows and latin1 for Linux.
+% \usepackage[latin1]{inputenc}
+
+\usepackage{verbatim}
+
+\usepackage[absolute]{textpos}
+\usepackage[utf8]{inputenc}
+% moderncv themes
+\moderncvtheme[blue]{classic}                 % optional argument are 'blue' (default), 'orange', 'red', 'green', 'grey' and 'roman' (for roman fo\dfrac{•}{•}nts, instead of sans serif fonts)
+%\moderncvtheme[green]{classic}                % idem
+
+% character encoding
+\usepackage[utf8]{inputenc}                   % replace by the encoding you are using
+\hyphenpenalty=10000
+
+% adjust the page margins
+\usepackage[scale=0.8]{geometry}
+%\setlength{\hintscolumnwidth}{3cm}						% if you want to change the width of the column with the dates
+%\AtBeginDocument{\setlength{\maketitlenamewidth}{6cm}}  % only for the classic theme, if you want to change the width of your name placeholder (to leave more space for your address details
+%\AtBeginDocument{\recomputelengths}                     % required when changes are made to page layout lengths
+
+% personal data
+\firstname{Daniel}
+\familyname{Pfeller}
+\address{Birthday: 24.02.1991\\Grabnergasse 10, 1060 Vienna\\}{}    % optional, remove the line if not wanted
+\mobile{+43 664 1927221}                    % optional, remove the line if not wanted
+\email{dapfe@microsoft.com}                      % optional, remove the line if not wanted
+\photo[100pt][0.4pt]{bw}
+\makeatletter
+\@ifpackageloaded{moderncvstylebanking}{%
+\let\oldmakecvtitle\makecvtitle
+\renewcommand*{\makecvtitle}{%
+  {\centering\framebox{\includegraphics[width=\@photowidth]{\@photo}}\par\vspace{10pt}}%
+  \oldmakecvtitle%
+}%
+}{%
+}
+\makeatother
+
+\makeatletter
+\let\oldcventry\cventry
+\renewcommand*{\cventry}{%
+\oldcventry
+}
+\makeatother
+
+\makeatletter
+\@ifpackageloaded{moderncvstylecasual}{%
+%\AtBeginDocument
+%{
+% reverse the name and photo
+\renewcommand*{\makecvtitle}{%
+  \recomputecvlengths%
+  \makecvfooter%
+  % define optional picture
+  \newbox{\makecvtitlepicturebox}%
+  \savebox{\makecvtitlepicturebox}{%
+    \ifthenelse{\isundefined{\@photo}}%
+      {
+        \@initializelength{\makecvtitlepicturewidth}% Damit Länge bekannt bei Name
+        \settowidth{\makecvtitlepicturewidth}{0pt}%
+      }%
+      {%
+       \setlength\fboxrule{\@photoframewidth}%
+       \ifdim\@photoframewidth=0pt%
+         \setlength{\fboxsep}{0pt}\fi%
+       {\color{color1}\framebox{\includegraphics[width=\@photowidth]{\@photo}}}}
+        \@initializelength{\makecvtitlepicturewidth}% Damit Länge bekannt bei Name
+        \settowidth{\makecvtitlepicturewidth}{\usebox{\makecvtitlepicturebox}}%
+      }%
+  % end define optional picture
+
+  % name
+%    \parbox[b]{\textwidth-\makecvtitlepicturewidth}{%
+ {   \raggedright\namefont{\color{color2!50}\@firstname} {\color{color2}\@familyname}}%\lastname -> error
+    %
+%    \parbox[b]{\textwidth-\makecvtitlepicturewidth}{%
+%   \raggedleft\namefont{\color{color2!50}\@firstname} {\color{color2}\@lastname}}%\familyname
+\\[-.35em]%
+  {\color{color2!50}\rule{\textwidth}{.25ex}}\par\medskip%
+\hfill\usebox{\makecvtitlepicturebox}
+  % optional title
+  \ifthenelse{\equal{\@title}{}}{}{\\[1.25em]\null\hfill\titlestyle{\@title}}\\[2.5em]% 
+  % optional quote
+  \ifthenelse{\isundefined{\@quote}}%
+    {}%
+    {{\null\hfill\begin{minipage}{\quotewidth}\centering\quotestyle{\@quote}\end{minipage}\hfill\null\\[2.5em]}}%
+  \par}% 
+}%
+
+%}% AtBeginDocument ende
+\makeatother
+\newlength\mylen
+\addtolength\mylen{\linewidth}
+\addtolength\mylen{-\hintscolumnwidth}
+\addtolength\mylen{-\separatorcolumnwidth}
+\addtolength\mylen{-3mm}
+
+\newcommand\mybitem[1]{%
+   \parbox[t]{3mm}{\textbullet}\parbox[t]{\mylen}{#1}}
+
+% to show numerical labels in the bibliography; only useful if you make citations in your resume
+%\makeatletter
+%\renewcommand*{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}
+%\makeatother
+
+\nopagenumbers{}                             % uncomment to suppress automatic page numbering for CVs longer than one page
+%----------------------------------------------------------------------------------
+%            content
+%----------------------------------------------------------------------------------
+\begin{document}
+\setlength{\parskip}{5em}
+\selectlanguage{ngerman}
+
+\makecvtitle
+
+
+
+
+\section{Education}
+\cventry[0.6em]{2014-present}{MSc, Software Engineering and Internet Computing}{Vienna University of Technology}{}{}{}
+\cventry[0.6em]{2011-2014}{BSc, Software and Information Engineering}{Vienna University of Technology}{}{}{}
+%\cventry[0.6em]{2001-2009}{Secondary School}{Gymnasium Kurzwiese}{}{}{focus on information technology.}{}{}
+
+
+
+
+\section{Career}
+
+\cventry[0.6em]{08/2014-present}{Technology Solutions Professional - Azure}{Microsoft}{}{}{
+\begin{itemize}
+\item Driving sales for the largest and most complex accounts in Austria and ensuring successful outcomes through Technical Briefings, POCs, Architectural Design Sessions, etc. 
+\item  Removing technical sales blockers with deep Cloud Technology expertise.
+\item Helping ready sellers at Microsoft as well as at partners via trainings, joint customer engagements and by providing technical support.
+\end{itemize}
+}
+
+\cventry[0.6em]{05 - 08/2014}{Technical Evangelist - Azure}{Microsoft}{}{}{
+\begin{itemize}
+\item Drove strategic adoption for Microsoft Azure with developers, customers and partners. 	
+\item Created impactful techdfasdfsadnical content such as demos, sample code and reference apps and delivered them at events as well as through online channels.
+\end{itemize}
+}
+
+\cventry[0.6em]{09/2013-02/2014}{Tutor - Fundamentals of Computer Science}{Vienna University of Technology}{}{}{
+\begin{itemize}
+\item Held lectures about programming, algorithms, design patterns, etc.
+\item Created and graded course exercises.
+\end{itemize}
+}
+
+
+\cventry[0.6em]{06 - 10/2013}{Developer - Android}{\href{https://play.google.com/store/apps/details?id=org.mots.haxsync}{HaxSync}}{}{}{%
+\begin{itemize}
+\item Android app placed in the \textbf{top 100} paid apps on the Google PlayStore with over 100.000 downloads and an average rating of 4,4 out of 5.
+\item Increased app sales by regularly implementing new key features most desired by customers. 
+\item Achieved an outstanding rating by quickly responding to customer's needs and wishes. 
+\item Decreased customer support requests by 50\% through fixing multiple bugs. 
+\end{itemize}}
+
+\cventry{07/2012}{Developer - Internship}{ETM Control GMBH}{}{}{
+\begin{itemize}
+\item Developed a HTML/JavaScript based mobile client for a complex supervisory control and data acquisition system.
+\item Learned the company's proprietary programming language within one week. 
+\end{itemize}
+}
+
+%
+%
+\section{Projects}
+
+\cventry[0.6em]{09/2013-02/2014}{Sole Developer - Windows Phone}{\href{http://www.windowsphone.com/en-us/store/app/weatherfrog/eee27255-2b60-47be-9e36-a208f4be91b7}{Weatherfrog}}{}{}{
+\begin{itemize}
+\item Unique weather application with and average rating of 4 out of 5 in the Windows Phone Store.
+\item Integrated multiple online services like Forecast.io, Google Places, Google Maps, Flickr.
+\end{itemize}
+}
+
+\cventry[0.6em]{01-04/2013}{University  teamproject - Java}{Unicloud}{}{}{
+\begin{itemize}
+\item Desktop application for merging multiple cloud storage providers like OneDrive, Dropbox, etc.
+\item Designed the technical architecture.
+\end{itemize}
+}
+
+\newpage
+\section {Expertise and skills}
+\cvitem{Certifications}{Microsoft Certified Solution Developer: Azure Solutions Architect}
+\cvitem{}{Microsoft Specialist: Developing Microsoft Azure Solutions}
+\cvitem{}{Microsoft Specialist: Implementing Microsoft Azure Infrastructure Solutions}
+\cvitem{}{Microsoft Specialist: Architecting Microsoft Azure Solutions}
+\cvitem{Development}{Advanced knowledge in C\#, .Net, Java, XAML}
+\cvitem{}{Intermediate knowledge in C, Python, Powershell, Haskell, HTML, CSS, JavaScript, SQL}
+\cvitem{Platforms}{Windows, Windows Phone, Linux, Android}
+\cvitem{Dev Tools}{Visual Studio, Eclipse, IntelliJ, git, tfs, Visual Studio Online}
+
+%\cvitem{Further skills}{Profound technical insights and quick to learn new things.}
+%\cvitem{}{Open for new and demanding challenges.}
+%\cvitem{}{Good at cooperating with people and talking to customers.}
+%\cvitem{}{Experienced in educating people with various backgrounds about new concepts.}
+
+
+\section {Languages}
+\cvlanguage{German}{native}{}
+\cvlanguage{English}{fluent}{}
+
+
+%\section {Interests}
+%\cvitem{}{internet of things, cloud topics}{}
+%\cvitem{}{new technologies and products in soft and hardware}{}
+%\cvitem{}{programming, app development}
+%\cvitem{}{fitness, sports}
+
+
+\end{document}
