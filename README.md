@@ -1,21 +1,25 @@
-# Daniel Pfeller's Resume (LaTeX)
+# Daniel Pfeller's Resume (Typst)
 
-This repository contains the LaTeX source code and assets for Daniel Pfeller's Curriculum Vitae, styled using the modern and premium `moderncv` LaTeX template.
+Typst sources and compiled PDFs for Daniel Pfeller's CV.
 
-## Repository Contents
+## Variants
 
-- `resume_current.tex`: The main LaTeX source file for the resume.
-- `salesfocus.tex`: A variant resume focusing on sales roles.
-- `pic.jpg`, `pic.png`: Photo assets used in the resume template.
-- `moderncv.cls` and style packages (`*.sty`): Custom LaTeX styles for layout, themes, and icons.
-- `CV_Daniel_Pfeller.pdf` & `resume_current.pdf`: Pre-compiled high-quality PDF versions of the resume.
+- `latest.typ` / `latest.pdf` — current main version
+- `v1_sidebar.typ` — two-column sidebar layout
+- `v2_executive.typ` — executive-style layout
+- `v2_anthropic.typ` — variant tailored for Anthropic
+- `v3_minimal.typ` — minimal single-column layout
+- `resume.typ` / `resume.pdf` — base version
+
+## Assets
+
+- `pic.jpg`, `pic.png`, `passfoto.jpg` — photos used by the templates
+- `CV_Daniel_Pfeller.pdf`, `resume_danielpfeller.pdf` — legacy pre-compiled PDFs
 
 ## How to Compile
 
-To compile the LaTeX source into a PDF document, ensure you have a TeX distribution (e.g., TeX Live) installed, and run:
+Install [Typst](https://typst.app/) and run:
 
 ```bash
-pdflatex resume_current.tex
+typst compile latest.typ
 ```
-
-This will produce `resume_current.pdf` in the same directory.
